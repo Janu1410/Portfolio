@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    /* BACKGROUND LOGIC:
+      Light Mode: #F8FAFC (Slate-50) - Clean, technical paper look.
+      Dark Mode: #0a0a0f (Deep Space) - Your signature dark theme.
+      Transition: 700ms for that smooth "day/night" switch effect.
+    */
+    @apply bg-[#F8FAFC] dark:bg-[#0a0a0f] 
+           text-slate-900 dark:text-white 
+           transition-colors duration-700 ease-in-out;
+  }
+
+  /* SELECTION HIGHLIGHT:
+     Light: Indigo highlight
+     Dark: Purple highlight
+  */
+  ::selection {
+    @apply bg-indigo-500/20 text-indigo-900 
+           dark:bg-purple-500/30 dark:text-purple-100;
+  }
+}
+
+/* --- Refined Technical Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px; /* For horizontal scrolling */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  /* Thumb Color:
+     Light: Slate-300 (Subtle gray)
+     Dark: White/10 (Subtle glass)
+  */
+  @apply bg-slate-300/80 dark:bg-white/10 rounded-full transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Hover Color:
+     Light: Indigo-500
+     Dark: Purple-500
+  */
+  @apply bg-indigo-500 dark:bg-purple-500;
+}
+
+/* --- Utility Classes for the Theme --- */
+@layer utilities {
+  
+  /* 1. The "Tech Text" Gradient 
+     Use this class on <h1> tags for instant theme support.
+  */
+  .text-gradient-tech {
+    @apply text-transparent bg-clip-text 
+           bg-gradient-to-r from-indigo-600 to-violet-600 
+           dark:from-purple-400 dark:to-blue-500;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+  /* 2. The "Glass Panel" 
+     Use this for cards if you want a quick standard style.
+  */
+  .glass-panel {
+    @apply bg-white/80 dark:bg-[#0f0f15]/80 
+           backdrop-blur-xl 
+           border border-slate-200 dark:border-white/5;
+  }
+
+  /* 3. Hide Scrollbar (for cleaner modals)
+  */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
