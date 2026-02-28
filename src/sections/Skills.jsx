@@ -16,12 +16,12 @@ const skillCategories = [
   { 
     name: "Cloud & Tools", 
     icon: <Layers size={16} />, 
-    skills: ["AWS", "Docker", "Git/GitHub", "Monaco Editor"] 
+    skills: ["AWS", "Docker", "Git/GitHub", "Postman", "Monaco Editor"] 
   },
   { 
     name: "Core Systems", 
     icon: <Cpu size={16} />, 
-    skills: ["C++", "Python", "Java", "ABAP", "SAP HANA"] 
+    skills: ["C++", "Python", "Java", "JavaScript", "Data Structures", "DBMS", "SQL"] 
   }
 ];
 

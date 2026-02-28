@@ -55,24 +55,26 @@ const About = () => {
               
               <div className="space-y-4 font-sans leading-relaxed text-slate-600 dark:text-gray-400">
                 <p>
-                  I am a <span className="text-slate-900 dark:text-white font-semibold">Software Engineer</span> focused on the 
-                  architecture of high-performance systems. My passion lies in building 
-                  <span className="text-indigo-600 dark:text-purple-400 font-medium"> scalable web infrastructures</span> that translate 
-                  complex logic into seamless user experiences.
+                  I am a <span className="text-slate-900 dark:text-white font-semibold">Software Developer</span> who enjoys building
+                  reliable web applications with clean UI and practical backend logic. My core stack includes
+                  <span className="text-indigo-600 dark:text-purple-400 font-medium"> React, Node.js, FastAPI, PostgreSQL, and MongoDB</span>.
                 </p>
                 <p>
-                  Currently, I lead technical development at <span className="text-blue-600 dark:text-blue-400 font-medium">KCX</span>, 
-                  where we are engineering FinOps tools for granular cloud cost intelligence. 
-                  I specialize in the <span className="text-slate-900 dark:text-white font-medium">React ecosystem</span>, leveraging 
-                  modern full-stack patterns to optimize everything from database queries to 
-                  client-side rendering.
+                  Currently, I am working as a <span className="text-slate-900 dark:text-white font-semibold">Software Developer Intern</span> at
+                  <span className="text-blue-600 dark:text-blue-400 font-medium"> KCX (Vadodara, on-site)</span>, where I contribute to
+                  FinOps product modules, dashboard features, and API-driven workflows.
+                </p>
+                <p>
+                  Along with development, I actively strengthen my fundamentals in
+                  <span className="text-slate-900 dark:text-white font-medium"> Data Structures, DBMS, and SQL</span>, and use
+                  <span className="text-slate-900 dark:text-white font-medium"> GitHub, Docker, AWS, and Postman</span> in day-to-day project work.
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex items-center gap-4">
                 <Code2 className="text-indigo-600 dark:text-purple-500" size={20} />
                 <p className="text-sm italic text-slate-500 dark:text-gray-500">
-                  "Building powerful systems through simple, clean architecture."
+                  "I focus on writing practical, maintainable code that solves real user problems."
                 </p>
               </div>
             </div>

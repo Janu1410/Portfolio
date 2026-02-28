@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, Server, Layout, Database, ExternalLink, Terminal } from 'lucide-react';
 
+const hasExternalLink = (url) => /^https?:\/\//.test(url || '');
+
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
+  const liveLinkAvailable = hasExternalLink(project.link);
 
   return (
     <motion.div 
@@ -142,14 +145,36 @@ const ProjectModal = ({ project, onClose }) => {
                 </ul>
               </div>
 
-              <button 
-                className="w-full py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg text-white
+              <button
+                disabled={!liveLinkAvailable}
+                className="w-full py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg text-white disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:active:scale-100
                   bg-gradient-to-r from-indigo-600 to-violet-600 shadow-indigo-500/20
                   dark:from-purple-600 dark:to-blue-600 dark:shadow-purple-500/20"
-                onClick={() => window.open(project.link, '_blank')}
+                onClick={() => {
+                  if (!liveLinkAvailable) return;
+                  window.open(project.link, '_blank', 'noopener,noreferrer');
+                }}
               >
-                Launch Demo <ExternalLink size={18} />
+                {liveLinkAvailable ? 'Launch Demo' : 'Live Link Pending'} <ExternalLink size={18} />
               </button>
+
+              <div className="text-center">
+                <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-gray-500 mb-2">
+                  Live Link
+                </p>
+                {liveLinkAvailable ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs break-all text-indigo-600 hover:text-indigo-500 dark:text-purple-400 dark:hover:text-purple-300 underline"
+                  >
+                    {project.link}
+                  </a>
+                ) : (
+                  <p className="text-xs text-slate-500 dark:text-gray-500">Add your live URL in `Projects.jsx`</p>
+                )}
+              </div>
               
               <p className="text-center text-[10px] font-mono uppercase tracking-widest
                 text-slate-400 dark:text-gray-600"

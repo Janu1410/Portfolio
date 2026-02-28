@@ -1,10 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Terminal, ArrowUpRight } from 'lucide-react';
+import { Github, Linkedin, Terminal } from 'lucide-react';
+import { siteConfig } from '../data/siteConfig';
 
 const Contact = () => {
+  const socialLinks = [
+    { icon: <Github size={20} />, label: 'GitHub', link: siteConfig.socialLinks.github },
+    { icon: <Linkedin size={20} />, label: 'LinkedIn', link: siteConfig.socialLinks.linkedin },
+  ];
+
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -12,93 +18,73 @@ const Contact = () => {
     >
       {/* Subtle Identifier */}
       <div className="flex items-center justify-center gap-3 mb-8">
-        <div className="w-12 h-[1px] 
-          bg-gradient-to-r from-transparent to-indigo-500/50 
-          dark:to-purple-500/50" 
+        <div
+          className="w-12 h-[1px]
+          bg-gradient-to-r from-transparent to-indigo-500/50
+          dark:to-purple-500/50"
         />
-        <span className="text-[10px] font-mono uppercase tracking-[0.5em] 
+        <span
+          className="text-[10px] font-mono uppercase tracking-[0.5em]
           text-indigo-500/80 dark:text-purple-500/80"
         >
           Connection.Finalize
         </span>
-        <div className="w-12 h-[1px] 
-          bg-gradient-to-l from-transparent to-indigo-500/50 
-          dark:to-purple-500/50" 
+        <div
+          className="w-12 h-[1px]
+          bg-gradient-to-l from-transparent to-indigo-500/50
+          dark:to-purple-500/50"
         />
       </div>
 
       {/* Hero Text: Massive but Light */}
-      <h3 className="text-5xl md:text-8xl font-bold tracking-tighter mb-12
+      <h3
+        className="text-5xl md:text-8xl font-bold tracking-tighter mb-12
         text-slate-900 dark:text-white"
       >
-        Let's <span className="text-transparent bg-clip-text bg-gradient-to-b 
-          from-indigo-600 to-violet-600 
+        Let&apos;s{' '}
+        <span
+          className="text-transparent bg-clip-text bg-gradient-to-b
+          from-indigo-600 to-violet-600
           dark:from-purple-400 dark:to-purple-600"
         >
           Sync.
         </span>
       </h3>
 
-      {/* The "Command Line" Email Action */}
-      <div className="flex flex-col items-center gap-12">
-        <motion.a 
-          href="mailto:your-email@example.com"
-          whileHover={{ scale: 1.02 }}
-          className="group relative inline-flex items-center gap-4 px-10 py-5 rounded-2xl backdrop-blur-md overflow-hidden transition-all duration-500 
-            bg-white border border-slate-200 hover:border-indigo-500/40 hover:shadow-2xl hover:shadow-indigo-500/10
-            dark:bg-white/5 dark:border-white/10 dark:hover:border-purple-500/40 dark:hover:shadow-none"
-        >
-          {/* Internal Glow Effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-            bg-gradient-to-r from-indigo-600/5 to-blue-600/5
-            dark:from-purple-600/10 dark:to-blue-600/10" 
-          />
-          
-          <Mail size={20} className="text-indigo-500 dark:text-purple-500" />
-          <span className="text-lg md:text-xl font-medium 
-            text-slate-800 dark:text-gray-200"
+      {/* Minimalist Social Row */}
+      <div className="flex items-center justify-center gap-8">
+        {socialLinks.map((social, i) => (
+          <a
+            key={i}
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${social.label} profile in a new tab`}
+            className="flex items-center gap-2 transition-colors group
+              text-slate-500 hover:text-indigo-600
+              dark:text-gray-500 dark:hover:text-white"
           >
-            janu@kcx.sys
-          </span>
-          <ArrowUpRight size={18} className="transition-all 
-            text-slate-400 group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5
-            dark:text-gray-600 dark:group-hover:text-purple-400" 
-          />
-        </motion.a>
-
-        {/* Minimalist Social Row */}
-        <div className="flex items-center gap-8">
-          {[
-            { icon: <Github size={20} />, label: "GitHub", link: "#" },
-            { icon: <Linkedin size={20} />, label: "LinkedIn", link: "#" }
-          ].map((social, i) => (
-            <a 
-              key={i}
-              href={social.link}
-              className="flex items-center gap-2 transition-colors group
-                text-slate-500 hover:text-indigo-600
-                dark:text-gray-500 dark:hover:text-white"
-            >
-              <span className="group-hover:text-indigo-600 dark:group-hover:text-purple-500 transition-colors">
-                {social.icon}
-              </span>
-              <span className="text-[10px] font-mono uppercase tracking-widest">{social.label}</span>
-            </a>
-          ))}
-        </div>
+            <span className="group-hover:text-indigo-600 dark:group-hover:text-purple-500 transition-colors">
+              {social.icon}
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-widest">{social.label}</span>
+          </a>
+        ))}
       </div>
 
       {/* Footer System Status */}
-      <div className="mt-24 pt-8 flex flex-col items-center gap-4 border-t 
+      <div
+        className="mt-24 pt-8 flex flex-col items-center gap-4 border-t
         border-slate-200 dark:border-white/5"
       >
-        <div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest
+        <div
+          className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest
           text-slate-500 dark:text-gray-600"
         >
           <Terminal size={12} />
           <span>Session: Logged as Software_Engineer</span>
         </div>
-        <p className="text-[10px] text-slate-400 dark:text-gray-700">© 2026 // Designed for Performance</p>
+        <p className="text-[10px] text-slate-400 dark:text-gray-700">(c) 2026 // Designed for Performance</p>
       </div>
     </motion.section>
   );

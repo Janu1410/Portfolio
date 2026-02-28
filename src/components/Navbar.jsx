@@ -9,7 +9,9 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
   return (
     <>
       {/* MAIN NAVBAR CONTAINER */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 
+      <nav
+        aria-label="Primary navigation"
+        className="fixed top-6 left-1/2 -translate-x-1/2 z-50 
         flex items-center justify-between
         w-[90%] md:w-auto max-w-4xl
         bg-white/70 dark:bg-[#0a0a0f]/80 
@@ -24,6 +26,8 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
           {menuItems.map((item) => (
             <button
               key={item}
+              type="button"
+              aria-current={activeSection === item.toLowerCase() ? 'page' : undefined}
               onClick={() => setActiveSection(item.toLowerCase())}
               className="relative px-4 py-2 text-sm font-medium transition-colors duration-300"
             >
@@ -49,6 +53,8 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
           {/* Desktop Divider & Theme Toggle */}
           <div className="w-[1px] h-4 bg-slate-200 dark:bg-white/10 mx-2" />
           <button 
+            type="button"
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             onClick={() => setDarkMode(!darkMode)}
             className="p-2 rounded-full transition-colors duration-300
               hover:bg-slate-100 dark:hover:bg-white/5 
@@ -73,6 +79,8 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
           <div className="flex items-center gap-2">
             {/* Mobile Theme Toggle (Always Visible) */}
             <button 
+              type="button"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full transition-colors duration-300
                 bg-slate-100/50 dark:bg-white/5
@@ -84,6 +92,10 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
 
             {/* Mobile Hamburger Toggle */}
             <button 
+              type="button"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-full transition-colors duration-300
                 bg-indigo-600 dark:bg-purple-600
@@ -113,6 +125,8 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
+              id="mobile-nav-menu"
+              role="menu"
               className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm
                 bg-white/90 dark:bg-[#1a1a20]/90 
                 backdrop-blur-xl border border-slate-200 dark:border-white/10 
@@ -122,6 +136,9 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
                 {menuItems.map((item) => (
                   <button
                     key={item}
+                    type="button"
+                    role="menuitem"
+                    aria-current={activeSection === item.toLowerCase() ? 'page' : undefined}
                     onClick={() => {
                       setActiveSection(item.toLowerCase());
                       setIsMobileMenuOpen(false);

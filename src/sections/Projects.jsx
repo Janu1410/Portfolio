@@ -23,13 +23,13 @@ const projects = [
     link: "#"
   },
   {
-    title: "V-Tourism Bot",
-    desc: "Intelligent concierge for Vadodara tourism built using SAP Conversational AI and integration tools.",
-    longDesc: "A specialized AI chatbot designed to enhance the tourism experience in Vadodara. It leverages SAP's enterprise AI tools to provide real-time information and personalized city tours.",
-    tech: ["SAP CAI", "JavaScript", "Cloud Foundry"],
-    stack: { frontend: "SAP Web Client", backend: "SAP Conversational AI", db: "SAP HANA (Integrated)" },
-    features: ["Multi-turn Conversations", "Contextual City Info", "SAP Tool Integration"],
-    link: "https://cai.tools.sap/" 
+    title: "Urban Navigator (CityBot)",
+    desc: "Virtual city guide chatbot for residents and tourists with personalized recommendations and route help.",
+    longDesc: "Urban Navigator, also known as CityBot, is a smart city exploration assistant that helps users discover attractions, nearby amenities, and better ways to travel through the city. It focuses on personalized suggestions, user-friendly interaction, and practical navigation guidance.",
+    tech: ["Chatbot", "Maps Integration", "Recommendation Engine"],
+    stack: { frontend: "Web Chat UI", backend: "AI Chatbot Engine", db: "Places and User Preference Data" },
+    features: ["Personalized City Suggestions", "Nearby Attraction Discovery", "Route Guidance for Users"],
+    link: "https://your-chatbot-live-link.com" 
   },
   {
     title: "AI Quizzer",
