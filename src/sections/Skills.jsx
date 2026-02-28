@@ -6,22 +6,22 @@ const skillCategories = [
   { 
     name: "Frontend", 
     icon: <Globe size={16} />, 
-    skills: ["ReactJS", "HTML5", "CSS3", "Framer Motion", "Bootstrap"] 
+    skills: ["ReactJS", "HTML5", "CSS3", "Bootstrap", "Framer Motion"] 
   },
   { 
     name: "Backend", 
     icon: <Database size={16} />, 
-    skills: ["Node.js", "Express.js", "FastAPI", "PostgreSQL", "MongoDB"] 
+    skills: ["Node.js", "Express.js", "ASP.NET MVC", "FastAPI", "MongoDB", "SQL"] 
   },
   { 
     name: "Cloud & Tools", 
     icon: <Layers size={16} />, 
-    skills: ["AWS", "Docker", "Git/GitHub", "Postman", "Monaco Editor"] 
+    skills: ["Docker", "Git/GitHub", "Postman", "Monaco Editor", "Hugging Face API", "Groq API"] 
   },
   { 
     name: "Core Systems", 
     icon: <Cpu size={16} />, 
-    skills: ["C++", "Python", "Java", "JavaScript", "Data Structures", "DBMS", "SQL"] 
+    skills: ["Python", "C++", "JavaScript", "C#", "Data Structures", "DBMS", "OOPS"] 
   }
 ];
 

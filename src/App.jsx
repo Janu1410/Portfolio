@@ -93,7 +93,7 @@ function App() {
                 <AnimatePresence mode="wait">
                   {/* We wrap components in motion.divs inside the sections themselves,
                       but adding a key here ensures React treats them as new instances */}
-                  {activeSection === 'home' && <Home key="home" onNavigate={setActiveSection} />}
+                  {activeSection === 'home' && <Home key="home" />}
                   {activeSection === 'about' && <About key="about" />}
                   {activeSection === 'skills' && <Skills key="skills" />}
                   {activeSection === 'projects' && <Projects key="projects" />}
