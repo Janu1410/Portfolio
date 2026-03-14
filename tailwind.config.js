@@ -9,8 +9,8 @@ export default {
     extend: {
       colors: {
         darkBg: '#050505',
-        accentPurple: '#a855f7',
-        accentBlue: '#3b82f6',
+        accentTeal: '#14b8a6',
+        accentSky: '#38bdf8',
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

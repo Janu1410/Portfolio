@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Globe, Database, Layers, Terminal } from 'lucide-react';
 
@@ -36,9 +36,9 @@ const Skills = () => {
       {/* Section Header */}
       <div className="flex items-center gap-4 mb-16">
         <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-          Technical.Stack<span className="text-indigo-600 dark:text-purple-500">()</span>
+          Technical.Stack<span className="text-teal-600 dark:text-sky-500">()</span>
         </h3>
-        <div className="h-[1px] flex-grow bg-gradient-to-r from-indigo-500/50 to-transparent dark:from-purple-500/50" />
+        <div className="h-[1px] flex-grow bg-gradient-to-r from-teal-500/50 to-transparent dark:from-sky-500/50" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -49,8 +49,8 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.1 }}
             className="group relative p-[1px] rounded-2xl transition-all duration-500
-              bg-gradient-to-br from-indigo-500/20 to-transparent hover:from-indigo-500/40
-              dark:from-white/10 dark:hover:from-purple-500/40"
+              bg-gradient-to-br from-teal-500/20 to-transparent hover:from-teal-500/40
+              dark:from-white/10 dark:hover:from-sky-500/40"
           >
             {/* Module Container */}
             <div className="
@@ -63,7 +63,7 @@ const Skills = () => {
               {/* Category Header: Terminal Style */}
               <div className="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-white/5 pb-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-indigo-600 dark:text-purple-500">{cat.icon}</span>
+                  <span className="text-teal-600 dark:text-sky-500">{cat.icon}</span>
                   <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 dark:text-gray-300">
                     {cat.name}
                   </h4>
@@ -85,20 +85,20 @@ const Skills = () => {
                     <div className="
                       px-4 py-2 rounded-lg text-xs md:text-sm font-mono transition-all duration-300
                       bg-slate-50 border border-slate-200 text-slate-600
-                      hover:bg-white hover:border-indigo-500/50 hover:text-indigo-700 hover:shadow-sm
+                      hover:bg-white hover:border-teal-500/50 hover:text-teal-700 hover:shadow-sm
                       
                       dark:bg-white/5 dark:border-white/10 dark:text-gray-400 
-                      dark:group-hover/skill:text-white dark:group-hover/skill:border-purple-500/50
+                      dark:group-hover/skill:text-white dark:group-hover/skill:border-sky-500/50
                     ">
                       <span className="mr-2
-                        text-indigo-400 group-hover/skill:text-indigo-600
-                        dark:text-purple-500/50 dark:group-hover/skill:text-purple-400"
+                        text-teal-400 group-hover/skill:text-teal-600
+                        dark:text-sky-500/50 dark:group-hover/skill:text-sky-400"
                       >#</span>
                       {skill}
                       
                       {/* Subtle Glow Effect on Hover */}
                       <div className="absolute inset-0 rounded-lg opacity-0 group-hover/skill:opacity-100 transition-opacity
-                        bg-indigo-500/5 dark:bg-purple-500/5" 
+                        bg-teal-500/5 dark:bg-sky-500/5" 
                       />
                     </div>
                   </motion.div>

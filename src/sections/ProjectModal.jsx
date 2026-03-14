@@ -1,14 +1,14 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { X, Server, Layout, Database, ExternalLink, Github, Terminal } from 'lucide-react';
 
-const hasExternalLink = (url) => /^https?:\/\//.test(url || '');
+const hasExternalLink = (url) => /^(https?:\/\/|\/)/.test(url || '');
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   const hasLiveLink = hasExternalLink(project.liveUrl);
-  const hasGithubLink = hasExternalLink(project.githubUrl);
+  const hasGithubLink = /^https?:\/\//.test(project.githubUrl || '');
 
   return (
     <motion.div
@@ -25,13 +25,13 @@ const ProjectModal = ({ project, onClose }) => {
         exit={{ scale: 0.95, y: 20, opacity: 0 }}
         className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] relative shadow-2xl
           bg-white border border-slate-200
-          dark:bg-[#0f0f15] dark:border-white/10 dark:shadow-purple-500/10"
+          dark:bg-[#0f0f15] dark:border-white/10 dark:shadow-sky-500/10"
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className="relative h-56 flex flex-col items-center justify-center border-b
-          bg-gradient-to-br from-indigo-500/5 via-transparent to-blue-500/5 border-slate-100
-          dark:from-purple-600/10 dark:to-blue-600/10 dark:border-white/5"
+          bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 border-slate-100
+          dark:from-sky-600/10 dark:to-blue-600/10 dark:border-white/5"
         >
           <button
             onClick={onClose}
@@ -43,10 +43,10 @@ const ProjectModal = ({ project, onClose }) => {
           </button>
 
           <div className="flex items-center gap-2 mb-2">
-            <Terminal size={14} className="text-indigo-600 dark:text-purple-500" />
+            <Terminal size={14} className="text-teal-600 dark:text-sky-500" />
             <span
               className="text-[10px] font-mono uppercase tracking-[0.4em]
-              text-indigo-600/70 dark:text-purple-500/70"
+              text-teal-600/70 dark:text-sky-500/70"
             >
               Project.Manifest
             </span>
@@ -63,7 +63,7 @@ const ProjectModal = ({ project, onClose }) => {
             <div className="lg:col-span-2 space-y-8">
               <section>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-1 h-4 rounded-full bg-indigo-500 dark:bg-purple-500" />
+                  <div className="w-1 h-4 rounded-full bg-teal-500 dark:bg-sky-500" />
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">Problem</h3>
                 </div>
                 <p className="leading-relaxed text-slate-600 dark:text-gray-400">{project.problem}</p>
@@ -79,7 +79,7 @@ const ProjectModal = ({ project, onClose }) => {
 
               <section>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-1 h-4 rounded-full bg-violet-500 dark:bg-purple-400" />
+                  <div className="w-1 h-4 rounded-full bg-emerald-500 dark:bg-sky-400" />
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">Result</h3>
                 </div>
                 <p className="leading-relaxed text-slate-600 dark:text-gray-400">{project.result}</p>
@@ -87,13 +87,13 @@ const ProjectModal = ({ project, onClose }) => {
 
               <section>
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-1 h-4 rounded-full bg-indigo-500 dark:bg-purple-500" />
+                  <div className="w-1 h-4 rounded-full bg-teal-500 dark:bg-sky-500" />
                   <h3 className="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">Core Architecture</h3>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="p-5 rounded-2xl border bg-slate-50 border-slate-200 dark:bg-white/5 dark:border-white/10">
-                    <Layout size={18} className="mb-2 text-indigo-600 dark:text-purple-500" />
+                    <Layout size={18} className="mb-2 text-teal-600 dark:text-sky-500" />
                     <p className="text-[10px] font-mono uppercase text-slate-400 dark:text-gray-500 mb-1">Frontend</p>
                     <p className="text-sm text-slate-700 dark:text-gray-300">{project.stack.frontend}</p>
                   </div>
@@ -105,7 +105,7 @@ const ProjectModal = ({ project, onClose }) => {
                   </div>
 
                   <div className="p-5 rounded-2xl border bg-slate-50 border-slate-200 dark:bg-white/5 dark:border-white/10">
-                    <Database size={18} className="mb-2 text-violet-600 dark:text-purple-400" />
+                    <Database size={18} className="mb-2 text-emerald-600 dark:text-sky-400" />
                     <p className="text-[10px] font-mono uppercase text-slate-400 dark:text-gray-500 mb-1">Database</p>
                     <p className="text-sm text-slate-700 dark:text-gray-300">{project.stack.db}</p>
                   </div>
@@ -114,7 +114,7 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
 
             <div className="space-y-6">
-              <div className="p-6 rounded-2xl border bg-indigo-50/50 border-indigo-100 dark:bg-white/5 dark:border-white/10">
+              <div className="p-6 rounded-2xl border bg-teal-50/50 border-teal-100 dark:bg-white/5 dark:border-white/10">
                 <h4 className="font-bold mb-4 text-sm uppercase tracking-widest text-slate-900 dark:text-white">Module Features</h4>
                 <ul className="space-y-3">
                   {project.features.map((feature, idx) => (
@@ -128,7 +128,7 @@ const ProjectModal = ({ project, onClose }) => {
               <button
                 disabled={!hasLiveLink}
                 className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all shadow-lg text-white disabled:opacity-60 disabled:cursor-not-allowed
-                  bg-gradient-to-r from-indigo-600 to-violet-600 shadow-indigo-500/20 dark:from-purple-600 dark:to-blue-600"
+                  bg-gradient-to-r from-teal-600 to-emerald-600 shadow-teal-500/20 dark:from-sky-600 dark:to-blue-600"
                 onClick={() => {
                   if (!hasLiveLink) return;
                   window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
@@ -137,22 +137,19 @@ const ProjectModal = ({ project, onClose }) => {
                 {hasLiveLink ? 'Launch Live Demo' : 'Live Link Pending'} <ExternalLink size={18} />
               </button>
 
-              <button
-                disabled={!hasGithubLink}
-                className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border
-                  bg-slate-100 border-slate-200 text-slate-700 disabled:opacity-60 disabled:cursor-not-allowed
-                  dark:bg-white/5 dark:border-white/10 dark:text-white"
-                onClick={() => {
-                  if (!hasGithubLink) return;
-                  window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
-                }}
-              >
-                {hasGithubLink ? 'Open GitHub' : 'GitHub Link Pending'} <Github size={18} />
-              </button>
+              {hasGithubLink && (
+                <button
+                  className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all border
+                    bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200
+                    dark:bg-white/5 dark:border-white/10 dark:text-white dark:hover:bg-white/10"
+                  onClick={() => {
+                    window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+                  }}
+                >
+                  Open GitHub <Github size={18} />
+                </button>
+              )}
 
-              <div className="text-center text-[10px] font-mono uppercase tracking-widest text-slate-400 dark:text-gray-600">
-                Links are editable in project data
-              </div>
             </div>
           </div>
         </div>

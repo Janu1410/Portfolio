@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -9,22 +9,28 @@
   
   body {
     /* BACKGROUND LOGIC:
-      Light Mode: #F8FAFC (Slate-50) - Clean, technical paper look.
-      Dark Mode: #0a0a0f (Deep Space) - Your signature dark theme.
+      Light Mode: #F6F2EC (Warm paper) - Editorial, clean base.
+      Dark Mode: #0B0F14 (Deep graphite) - Calm contrast for night mode.
       Transition: 700ms for that smooth "day/night" switch effect.
     */
-    @apply bg-[#F8FAFC] dark:bg-[#0a0a0f] 
+    font-family: 'Work Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    @apply bg-[#F6F2EC] dark:bg-[#0B0F14] 
            text-slate-900 dark:text-white 
            transition-colors duration-700 ease-in-out;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
   /* SELECTION HIGHLIGHT:
-     Light: Indigo highlight
-     Dark: Purple highlight
+     Light: teal highlight
+     Dark: sky highlight
   */
   ::selection {
-    @apply bg-indigo-500/20 text-indigo-900 
-           dark:bg-purple-500/30 dark:text-purple-100;
+    @apply bg-teal-500/20 text-teal-900 
+           dark:bg-sky-500/30 dark:text-sky-100;
   }
 }
 
@@ -48,10 +54,10 @@
 
 ::-webkit-scrollbar-thumb:hover {
   /* Hover Color:
-     Light: Indigo-500
-     Dark: Purple-500
+     Light: teal-500
+     Dark: sky-500
   */
-  @apply bg-indigo-500 dark:bg-purple-500;
+  @apply bg-teal-500 dark:bg-sky-500;
 }
 
 /* --- Utility Classes for the Theme --- */
@@ -62,8 +68,8 @@
   */
   .text-gradient-tech {
     @apply text-transparent bg-clip-text 
-           bg-gradient-to-r from-indigo-600 to-violet-600 
-           dark:from-purple-400 dark:to-blue-500;
+           bg-gradient-to-r from-teal-600 to-emerald-600 
+           dark:from-sky-400 dark:to-blue-500;
   }
   
   .no-scrollbar::-webkit-scrollbar {

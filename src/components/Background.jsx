@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 
 const createParticle = (width, height) => ({
   x: Math.random() * width,
@@ -58,7 +58,7 @@ const Background = ({ darkMode, reduceMotion }) => {
       const pulse = particle.baseOpacity + Math.abs(Math.sin(time * 0.001 + particle.x)) * 0.3;
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(168, 85, 247, ${pulse})`;
+      ctx.fillStyle = `rgba(56, 189, 248, ${pulse})`;
       ctx.fill();
     };
 
@@ -72,7 +72,7 @@ const Background = ({ darkMode, reduceMotion }) => {
           if (dist < 110) {
             const edgeOpacity = (1 - dist / 110) * 0.12;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(168, 85, 247, ${edgeOpacity})`;
+            ctx.strokeStyle = `rgba(45, 212, 191, ${edgeOpacity})`;
             ctx.lineWidth = 0.6;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -104,10 +104,15 @@ const Background = ({ darkMode, reduceMotion }) => {
   }, [darkMode, reduceMotion]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none transition-colors duration-700 bg-[#F8FAFC] dark:bg-transparent"
-    />
+    <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(13,148,136,0.12),_transparent_55%)] dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),_transparent_55%)]" />
+      <div className="absolute -top-40 right-[-10%] h-[420px] w-[420px] rounded-full bg-teal-200/40 blur-3xl dark:bg-sky-500/10" />
+      <div className="absolute bottom-[-25%] left-[-10%] h-[520px] w-[520px] rounded-full bg-emerald-200/40 blur-3xl dark:bg-blue-500/10" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 transition-colors duration-700 bg-[#F6F2EC] dark:bg-transparent"
+      />
+    </div>
   );
 };
 

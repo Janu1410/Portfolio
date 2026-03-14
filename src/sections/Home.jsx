@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../data/siteConfig';
 
 const Home = () => {
-  const roles = ['Software Developer', 'Full-Stack Developer'];
+  const roles = [siteConfig.role, 'Full-Stack Developer'];
   const [index, setIndex] = useState(0);
 
   const roleCount = roles.length;
@@ -45,16 +45,21 @@ const Home = () => {
         </motion.div>
 
         <div className="w-full md:w-7/12 text-center md:text-left">
-        
+          <div className="mb-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em]
+            bg-teal-50 text-teal-700 border border-teal-200/70
+            dark:bg-sky-500/10 dark:text-sky-300 dark:border-sky-500/20"
+          >
+            Final-year CSE student
+          </div>
 
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
             Hi, I&apos;m{' '}
             <span
               className="text-transparent bg-clip-text bg-gradient-to-r
-              from-indigo-600 to-violet-600
-              dark:from-purple-400 dark:to-blue-500"
+              from-teal-600 to-emerald-600
+              dark:from-sky-400 dark:to-blue-500"
             >
-              Janu.
+              {siteConfig.fullName}.
             </span>
           </h1>
 
@@ -69,8 +74,8 @@ const Home = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                   className="font-bold text-transparent bg-clip-text bg-gradient-to-r
-                    from-indigo-600 to-violet-600
-                    dark:from-purple-400 dark:to-blue-500"
+                    from-teal-600 to-emerald-600
+                    dark:from-sky-400 dark:to-blue-500"
                 >
                   {roles[index]}
                 </motion.span>
@@ -96,8 +101,8 @@ const Home = () => {
               disabled={!hasResume}
               title={hasResume ? 'Open CV' : 'Add resumeUrl in src/data/siteConfig.js'}
               className="px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
-                text-purple-700 border-2 border-purple-500/70 bg-transparent hover:bg-purple-500/10
-                dark:text-purple-300 dark:border-purple-400/60 dark:hover:bg-purple-400/10"
+                text-teal-700 border-2 border-teal-500/70 bg-transparent hover:bg-teal-500/10
+                dark:text-sky-300 dark:border-sky-400/60 dark:hover:bg-sky-400/10"
             >
               {hasResume ? 'Download CV' : 'CV Link Pending'}
             </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
@@ -56,7 +56,7 @@ const CustomCursor = () => {
     <>
       {/* The main precision dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-purple-500 rounded-full z-[9999] pointer-events-none"
+        className="fixed top-0 left-0 w-2 h-2 bg-sky-500 rounded-full z-[9999] pointer-events-none"
         animate={{
           x: mousePosition.x - 4,
           y: mousePosition.y - 4,
@@ -67,14 +67,14 @@ const CustomCursor = () => {
 
       {/* The smooth trailing ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-purple-500/50 rounded-full z-[9998] pointer-events-none hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 border border-sky-500/50 rounded-full z-[9998] pointer-events-none hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,
         }}
         animate={{
           scale: isHovering ? 1.5 : 1,
-          backgroundColor: isHovering ? 'rgba(168, 85, 247, 0.1)' : 'transparent',
+          backgroundColor: isHovering ? 'rgba(20, 184, 166, 0.12)' : 'transparent',
         }}
       />
     </>

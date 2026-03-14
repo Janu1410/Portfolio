@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X, Terminal } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
         className="fixed top-6 left-1/2 -translate-x-1/2 z-50 
         flex items-center justify-between
         w-[90%] md:w-auto max-w-4xl
-        bg-white/70 dark:bg-[#0a0a0f]/80 
+        bg-white/70 dark:bg-[#0B0F14]/80 
         backdrop-blur-xl 
         border border-slate-200 dark:border-white/10 
         p-2 md:p-1.5 rounded-full shadow-lg dark:shadow-2xl 
@@ -35,14 +35,14 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
                 <motion.div
                   layoutId="nav-pill"
                   className="absolute inset-0 rounded-full 
-                    bg-indigo-50 border border-indigo-100 
-                    dark:bg-white/5 dark:border-white/5 dark:shadow-[0_0_10px_rgba(168,85,247,0.2)]"
+                    bg-teal-50 border border-teal-100 
+                    dark:bg-white/5 dark:border-white/5 dark:shadow-[0_0_10px_rgba(56,189,248,0.25)]"
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
               <span className={`relative z-10 transition-colors duration-300 ${
                 activeSection === item.toLowerCase() 
-                  ? 'text-indigo-600 dark:text-purple-400 font-semibold' 
+                  ? 'text-teal-600 dark:text-sky-400 font-semibold' 
                   : 'text-slate-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
               }`}>
                 {item}
@@ -59,7 +59,7 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
             className="p-2 rounded-full transition-colors duration-300
               hover:bg-slate-100 dark:hover:bg-white/5 
               text-slate-500 dark:text-gray-400 
-              hover:text-indigo-600 dark:hover:text-purple-400"
+              hover:text-teal-600 dark:hover:text-sky-400"
           >
             {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
@@ -69,7 +69,7 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
         {/* --- MOBILE VIEW (Visible on Mobile) --- */}
         <div className="flex md:hidden items-center justify-between w-full px-2">
           {/* Mobile Logo / Brand */}
-          <div className="flex items-center gap-2 text-indigo-600 dark:text-purple-500">
+          <div className="flex items-center gap-2 text-teal-600 dark:text-sky-500">
             <Terminal size={16} />
             <span className="text-xs font-mono font-bold tracking-widest text-slate-900 dark:text-white">
               JANU.SYS
@@ -98,8 +98,8 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-full transition-colors duration-300
-                bg-indigo-600 dark:bg-purple-600
-                text-white shadow-lg shadow-indigo-500/30 dark:shadow-purple-500/30"
+                bg-teal-600 dark:bg-sky-600
+                text-white shadow-lg shadow-teal-500/30 dark:shadow-sky-500/30"
             >
               {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -128,7 +128,7 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
               id="mobile-nav-menu"
               role="menu"
               className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm
-                bg-white/90 dark:bg-[#1a1a20]/90 
+                bg-white/90 dark:bg-[#10161d]/90 
                 backdrop-blur-xl border border-slate-200 dark:border-white/10 
                 rounded-2xl shadow-2xl overflow-hidden md:hidden"
             >
@@ -145,13 +145,13 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
                     }}
                     className={`w-full p-4 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-between
                       ${activeSection === item.toLowerCase() 
-                        ? 'bg-indigo-50 dark:bg-white/5 text-indigo-600 dark:text-purple-400' 
+                        ? 'bg-teal-50 dark:bg-white/5 text-teal-600 dark:text-sky-400' 
                         : 'text-slate-500 dark:text-gray-400 hover:bg-slate-50 dark:hover:bg-white/5'
                       }`}
                   >
                     {item}
                     {activeSection === item.toLowerCase() && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-purple-500 shadow-[0_0_8px_currentColor]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-teal-500 dark:bg-sky-500 shadow-[0_0_8px_currentColor]" />
                     )}
                   </button>
                 ))}

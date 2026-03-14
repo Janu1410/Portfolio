@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 // Component Imports
@@ -57,7 +57,7 @@ function App() {
   }, [activeSection, reduceMotion]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-700 ${darkMode ? 'dark bg-[#0a0a0f]' : 'bg-[#F8FAFC]'}`}>
+    <div className={`min-h-screen transition-colors duration-700 ${darkMode ? 'dark bg-[#0B0F14]' : 'bg-[#F6F2EC]'}`}>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[120] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:text-slate-900"
@@ -79,7 +79,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10 text-slate-900 dark:text-white font-sans selection:bg-indigo-500/30 dark:selection:bg-purple-500/30"
+            className="relative z-10 text-slate-900 dark:text-white selection:bg-teal-500/30 dark:selection:bg-sky-500/30"
           >
             <Navbar
               activeSection={activeSection}

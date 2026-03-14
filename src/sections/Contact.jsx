@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Terminal } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
@@ -20,8 +20,8 @@ const Contact = () => {
         Let&apos;s{' '}
         <span
           className="text-transparent bg-clip-text bg-gradient-to-b
-          from-indigo-600 to-violet-600
-          dark:from-purple-400 dark:to-purple-600"
+          from-teal-600 to-emerald-600
+          dark:from-sky-400 dark:to-sky-600"
         >
           Connect.
         </span>
@@ -40,9 +40,9 @@ const Contact = () => {
             rel="noopener noreferrer"
             aria-label={`Open ${social.label} profile in a new tab`}
             className="flex items-center gap-2 transition-colors group
-              text-slate-500 hover:text-indigo-600 dark:text-gray-500 dark:hover:text-white"
+              text-slate-500 hover:text-teal-600 dark:text-gray-500 dark:hover:text-white"
           >
-            <span className="group-hover:text-indigo-600 dark:group-hover:text-purple-500 transition-colors">{social.icon}</span>
+            <span className="group-hover:text-teal-600 dark:group-hover:text-sky-500 transition-colors">{social.icon}</span>
             <span className="text-[10px] font-mono uppercase tracking-widest">{social.label}</span>
           </a>
         ))}

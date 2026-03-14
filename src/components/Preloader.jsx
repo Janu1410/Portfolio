@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 
 const Preloader = ({ onComplete, reduceMotion }) => {
@@ -16,7 +16,7 @@ const Preloader = ({ onComplete, reduceMotion }) => {
           transition={{ duration: reduceMotion ? 0.2 : 0.8, ease: "circOut" }}
           className="text-5xl md:text-7xl font-bold text-white tracking-tighter"
         >
-          Janu<span className="text-purple-500">.</span>
+          Janu<span className="text-sky-500">.</span>
         </motion.h1>
         
         {/* Animated Progress Bar */}
@@ -27,7 +27,7 @@ const Preloader = ({ onComplete, reduceMotion }) => {
           onAnimationComplete={() => {
             onComplete(); 
           }}
-          className="h-[2px] w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent mt-2"
+          className="h-[2px] w-full bg-gradient-to-r from-transparent via-sky-500 to-transparent mt-2"
         />
       </div>
     </motion.div>

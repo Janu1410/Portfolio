@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FolderCode, ArrowUpRight, ExternalLink, Github } from 'lucide-react';
+import { FolderCode, ArrowUpRight, ExternalLink } from 'lucide-react';
 import ProjectModal from './ProjectModal';
+
+const hasExternalLink = (url) => /^(https?:\/\/|\/)/.test(url || '');
 
 const projects = [
   {
@@ -22,27 +24,7 @@ const projects = [
     },
     features: ['Line-by-line tracing', 'Variable visualization', 'AI explanation output'],
     liveUrl: 'https://your-codevizai-live-link.com',
-    githubUrl: 'https://github.com/Dhruvi1523/CodeVizAi2026',
-  },
-  {
-    title: 'AI Quizzer',
-    status: 'Completed',
-    role: 'Full-Stack Developer',
-    timeline: '2025',
-    summary: 'AI-powered quiz generator with authentication and adaptive quiz generation.',
-    problem: 'Static quizzes lack engagement and personalization.',
-    solution:
-      'Implemented React + Node.js app with JWT authentication and dynamic quiz generation using Groq AI API.',
-    result: 'Built and containerized the platform using Docker with deployment-ready architecture.',
-    tech: ['ReactJS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Docker', 'Groq AI API'],
-    stack: {
-      frontend: 'ReactJS',
-      backend: 'Node.js + Express.js',
-      db: 'MongoDB',
-    },
-    features: ['Secure login', 'Adaptive quizzes', 'Containerized deployment'],
-    liveUrl: 'https://your-ai-quizzer-live-link.com',
-    githubUrl: 'https://github.com/your-username/ai-quizzer',
+    githubUrl: 'https://github.com/dhruvi1552/CodeVizAi2026',
   },
   {
     title: 'Destiny Wander',
@@ -65,6 +47,26 @@ const projects = [
     githubUrl: 'https://github.com/Janu1410/DestinyWander',
   },
   {
+    title: 'AI Quizzer',
+    status: 'Completed',
+    role: 'Full-Stack Developer',
+    timeline: '2025',
+    summary: 'AI-powered quiz generator with authentication and adaptive quiz generation.',
+    problem: 'Static quizzes lack engagement and personalization.',
+    solution:
+      'Implemented React + Node.js app with JWT authentication and dynamic quiz generation using Groq AI API.',
+    result: 'Built and containerized the platform using Docker with deployment-ready architecture.',
+    tech: ['ReactJS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Docker', 'Groq AI API'],
+    stack: {
+      frontend: 'ReactJS',
+      backend: 'Node.js + Express.js',
+      db: 'MongoDB',
+    },
+    features: ['Secure login', 'Adaptive quizzes', 'Containerized deployment'],
+    liveUrl: 'https://your-ai-quizzer-live-link.com',
+    githubUrl: 'https://github.com/your-username/ai-quizzer',
+  },
+  {
     title: 'Urban Navigator (CityBot)',
     status: 'Prototype',
     role: 'Chatbot Developer',
@@ -81,8 +83,8 @@ const projects = [
       db: 'Place and preference dataset',
     },
     features: ['Personalized suggestions', 'Nearby place discovery', 'Route support'],
-    liveUrl: 'https://your-chatbot-live-link.com',
-    githubUrl: 'https://github.com/your-username/urban-navigator-citybot',
+    liveUrl: '/chatbot.html',
+    githubUrl: '',
   },
 ];
 
@@ -104,20 +106,20 @@ const Projects = () => {
             whileHover={{ y: -10 }}
             onClick={() => setSelectedProject(project)}
             className="group relative p-8 rounded-[2rem] transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-sm text-left
-              bg-white border border-slate-200 hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-500/30
-              dark:bg-white/5 dark:border-white/10 dark:hover:border-purple-500/30 dark:hover:shadow-none"
+              bg-white border border-slate-200 hover:shadow-xl hover:shadow-teal-500/10 hover:border-teal-500/30
+              dark:bg-white/5 dark:border-white/10 dark:hover:border-sky-500/30 dark:hover:shadow-none"
           >
             <div
               className="absolute left-0 top-1/4 bottom-1/4 w-[1px] transition-opacity duration-500 opacity-0 group-hover:opacity-100
-              bg-gradient-to-b from-transparent via-indigo-500 to-transparent dark:via-purple-500"
+              bg-gradient-to-b from-transparent via-teal-500 to-transparent dark:via-sky-500"
             />
 
             <div className="relative z-10">
               <div className="flex justify-between items-start mb-5">
                 <div
                   className="p-3 rounded-2xl
-                  bg-indigo-50 text-indigo-600
-                  dark:bg-purple-500/10 dark:text-purple-500"
+                  bg-teal-50 text-teal-600
+                  dark:bg-sky-500/10 dark:text-sky-500"
                 >
                   <FolderCode size={28} />
                 </div>
@@ -132,7 +134,7 @@ const Projects = () => {
 
               <h4
                 className="text-2xl font-bold mb-2 transition-colors
-                text-slate-900 group-hover:text-indigo-600
+                text-slate-900 group-hover:text-teal-600
                 dark:text-white dark:group-hover:text-white"
               >
                 {project.title}
@@ -161,16 +163,25 @@ const Projects = () => {
                 <div className="flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
                   <span
                     className="text-xs font-mono uppercase tracking-widest font-bold
-                    text-indigo-600 dark:text-purple-500"
+                    text-teal-600 dark:text-sky-500"
                   >
                     View Project Details
                   </span>
-                  <ArrowUpRight size={16} className="text-indigo-600 dark:text-purple-500" />
+                  <ArrowUpRight size={16} className="text-teal-600 dark:text-sky-500" />
                 </div>
-                <div className="flex items-center gap-2 text-slate-400 dark:text-gray-600">
-                  <ExternalLink size={14} />
-                  <Github size={14} />
-                </div>
+                {hasExternalLink(project.liveUrl) && (
+                  <button
+                    type="button"
+                    title="Open live demo"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+                    }}
+                    className="flex items-center gap-2 text-slate-400 transition-colors hover:text-teal-600 dark:text-gray-600 dark:hover:text-sky-400"
+                  >
+                    <ExternalLink size={14} />
+                  </button>
+                )}
               </div>
             </div>
           </motion.button>

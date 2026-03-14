@@ -1,48 +1,42 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, BookOpen, Code2, Terminal, FolderKanban, BadgeCheck, ChartNoAxesCombined } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Code2, Terminal, BadgeCheck } from 'lucide-react';
 
 const quickStats = [
   { label: 'Projects', value: '4+' },
   { label: 'Internships', value: '2' },
   { label: 'Core Skills', value: '15+' },
-  { label: 'Certifications', value: '2' },
-];
-
-const projectInsights = [
-  {
-    title: 'CodeVizAi',
-    note: 'Built AI-powered Python code tracing with interactive execution visualization.',
-  },
-  {
-    title: 'AI Quizzer',
-    note: 'Developed adaptive quiz generation flow with JWT auth and API integration.',
-  },
-  {
-    title: 'Destiny Wander',
-    note: 'Delivered responsive travel platform with authentication and booking workflows.',
-  },
-  {
-    title: 'Urban Navigator',
-    note: 'Designed city-guide chatbot concept for personalized recommendations and routing.',
-  },
+  { label: 'Certifications', value: '4' },
 ];
 
 const certifications = [
   {
-    name: 'Python & Data Analysis',
-    provider: 'Edunet Foundation',
-    focus: 'Data processing and analytical workflow fundamentals',
+    name: 'Software Development and SAP Technologies',
+    provider: 'Code Unnati',
+    focus: 'Program certificate',
+    file: '/codeUnnati2.pdf',
+    thumb: '/certificates/code-unnati.png',
   },
   {
-    name: 'AI & SAP Conversational AI Chatbot',
+    name: 'SAP Conversational AI Chatbot',
     provider: 'Edunet Foundation',
-    focus: 'Conversational interface and chatbot solution design',
+    focus: 'Conversational AI solution design',
+    file: '/Edunet_Foundation_SAP.pdf',
+    thumb: '/certificates/edunet-sap-chatbot.png',
+  },
+  {
+    name: 'Generative AI Foundations',
+    provider: 'Coursera',
+    focus: 'Core concepts and tools',
+    file: '/generativeAI-coursera.pdf',
+    thumb: '/certificates/generative-ai-coursera.png',
   },
   {
     name: 'Git and GitHub',
     provider: 'Coursera',
-    focus: 'Version control, collaboration, and branch-based workflow',
+    focus: 'Version control and collaboration',
+    file: '/github-coursera.pdf',
+    thumb: '/certificates/git-github-coursera.png',
   },
 ];
 
@@ -52,7 +46,7 @@ const About = () => {
       degree: 'B.E. in Computer Science',
       institution: 'The Maharaja Sayajirao University of Baroda',
       result: 'CGPA: 7.12',
-      icon: <GraduationCap size={18} className="text-purple-600 dark:text-purple-500" />,
+      icon: <GraduationCap size={18} className="text-sky-600 dark:text-sky-500" />,
     },
     {
       degree: '12th Standard (Science)',
@@ -77,9 +71,9 @@ const About = () => {
     >
       <div className="flex items-center gap-4 mb-10">
         <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-          About<span className="text-indigo-600 dark:text-purple-500">_</span>
+          About<span className="text-teal-600 dark:text-sky-500">_</span>
         </h3>
-        <div className="h-[1px] flex-grow bg-gradient-to-r from-indigo-500/50 to-transparent dark:from-purple-500/50" />
+        <div className="h-[1px] flex-grow bg-gradient-to-r from-teal-500/50 to-transparent dark:from-sky-500/50" />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
@@ -96,7 +90,7 @@ const About = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
         <div className="lg:col-span-3 space-y-6">
-          <div className="relative p-1 rounded-2xl bg-gradient-to-br from-indigo-500/20 via-transparent to-blue-500/20 dark:from-purple-500/20 dark:to-blue-500/20">
+          <div className="relative p-1 rounded-2xl bg-gradient-to-br from-teal-500/20 via-transparent to-blue-500/20 dark:from-sky-500/20 dark:to-blue-500/20">
             <div
               className="
               bg-white/80 dark:bg-[#0a0a0f]/80
@@ -119,13 +113,13 @@ const About = () => {
                 </p>
                 <p>
                   I primarily use
-                  <span className="text-indigo-600 dark:text-purple-400 font-medium"> ReactJS, Node.js, Express.js, ASP.NET MVC, MongoDB, and SQL</span>,
+                  <span className="text-teal-600 dark:text-sky-400 font-medium"> ReactJS, Node.js, Express.js, ASP.NET MVC, MongoDB, and SQL</span>,
                   while strengthening fundamentals in Data Structures, DBMS, and OOPS.
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex items-center gap-4">
-                <Code2 className="text-indigo-600 dark:text-purple-500" size={20} />
+                <Code2 className="text-teal-600 dark:text-sky-500" size={20} />
                 <p className="text-sm italic text-slate-500 dark:text-gray-500">
                   "I focus on practical engineering that is simple, scalable, and easy to maintain."
                 </p>
@@ -135,12 +129,12 @@ const About = () => {
         </div>
 
         <div className="lg:col-span-2 space-y-4">
-          <h4 className="text-xs font-mono text-indigo-600 dark:text-purple-500 uppercase tracking-[0.2em] mb-4">
+          <h4 className="text-xs font-mono text-teal-600 dark:text-sky-500 uppercase tracking-[0.2em] mb-4">
             Profile.Insights()
           </h4>
 
           <div className="space-y-4 relative">
-            <div className="absolute left-[21px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-indigo-500/30 via-blue-500/20 to-transparent dark:from-purple-500/50" />
+            <div className="absolute left-[21px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-teal-500/30 via-blue-500/20 to-transparent dark:from-sky-500/50" />
 
             {education.map((edu, i) => (
               <motion.div
@@ -153,21 +147,21 @@ const About = () => {
                 <div
                   className="absolute left-4 top-1 w-3 h-3 rounded-full
                   bg-white dark:bg-[#0a0a0f]
-                  border-2 border-indigo-500 dark:border-purple-500
+                  border-2 border-teal-500 dark:border-sky-500
                   z-10 group-hover:scale-125 transition-transform"
                 />
 
                 <div
                   className="p-4 rounded-xl transition-all duration-300
-                  bg-white border border-slate-200 hover:border-indigo-500/30 hover:shadow-md
-                  dark:bg-white/5 dark:border-white/5 dark:hover:border-purple-500/30 dark:hover:shadow-none"
+                  bg-white border border-slate-200 hover:border-teal-500/30 hover:shadow-md
+                  dark:bg-white/5 dark:border-white/5 dark:hover:border-sky-500/30 dark:hover:shadow-none"
                 >
                   <div className="flex justify-between items-start mb-1">
                     <h5 className="font-bold text-sm text-slate-800 dark:text-gray-200">{edu.degree}</h5>
                     <span
                       className="text-[10px] font-mono px-2 py-0.5 rounded border
-                      bg-indigo-50 text-indigo-600 border-indigo-200
-                      dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20"
+                      bg-teal-50 text-teal-600 border-teal-200
+                      dark:bg-sky-500/10 dark:text-sky-400 dark:border-sky-500/20"
                     >
                       {edu.result}
                     </span>
@@ -179,49 +173,42 @@ const About = () => {
             ))}
           </div>
 
-          <div className="rounded-xl border p-4 bg-white border-slate-200 dark:bg-white/5 dark:border-white/10">
-            <div className="flex items-center gap-2 mb-2">
-              <ChartNoAxesCombined size={15} className="text-indigo-600 dark:text-purple-500" />
-              <p className="text-[10px] font-mono uppercase tracking-widest text-indigo-600 dark:text-purple-400">Current Goal</p>
-            </div>
-            <p className="text-xs text-slate-600 dark:text-gray-400">
-              Building production-ready web applications while improving backend depth, system design fundamentals, and deployment workflows.
-            </p>
-          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-        <div className="rounded-xl border p-4 bg-white border-slate-200 dark:bg-white/5 dark:border-white/10">
-          <div className="flex items-center gap-2 mb-2">
-            <FolderKanban size={15} className="text-indigo-600 dark:text-purple-500" />
-            <p className="text-[10px] font-mono uppercase tracking-widest text-indigo-600 dark:text-purple-400">Project Insights</p>
-          </div>
-          <ul className="space-y-2">
-            {projectInsights.map((project) => (
-              <li key={project.title}>
-                <p className="text-xs font-semibold text-slate-800 dark:text-gray-200">{project.title}</p>
-                <p className="text-xs text-slate-600 dark:text-gray-400">{project.note}</p>
-              </li>
-            ))}
-          </ul>
+      <div className="mt-10 rounded-2xl border border-slate-200 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5">
+        <div className="flex items-center gap-2 mb-4">
+          <BadgeCheck size={16} className="text-teal-600 dark:text-sky-500" />
+          <p className="text-[10px] font-mono uppercase tracking-widest text-teal-600 dark:text-sky-400">Certifications</p>
         </div>
-
-        <div className="rounded-xl border p-4 bg-white border-slate-200 dark:bg-white/5 dark:border-white/10">
-          <div className="flex items-center gap-2 mb-2">
-            <BadgeCheck size={15} className="text-indigo-600 dark:text-purple-500" />
-            <p className="text-[10px] font-mono uppercase tracking-widest text-indigo-600 dark:text-purple-400">Certifications</p>
-          </div>
-          <ul className="space-y-2">
-            {certifications.map((cert) => (
-              <li key={cert.name}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {certifications.map((cert) => (
+            <a
+              key={cert.name}
+              href={cert.file}
+              target="_blank"
+              rel="noreferrer"
+              className="group w-full rounded-xl border border-slate-200 bg-white/80 p-4 transition-colors hover:border-teal-500/30 dark:border-white/10 dark:bg-white/5 dark:hover:border-sky-500/30"
+            >
+              <div className="rounded-md border border-slate-200 bg-slate-50 p-2 dark:border-white/10 dark:bg-white/5">
+                <img
+                  src={cert.thumb}
+                  alt={`${cert.name} certificate preview`}
+                  loading="lazy"
+                  className="h-[146px] w-full rounded object-contain"
+                />
+              </div>
+              <div className="mt-3">
                 <p className="text-xs font-semibold text-slate-800 dark:text-gray-200">{cert.name}</p>
-                <p className="text-xs text-slate-600 dark:text-gray-400">
+                <p className="text-[11px] text-slate-600 dark:text-gray-400">
                   {cert.provider} | {cert.focus}
                 </p>
-              </li>
-            ))}
-          </ul>
+                <span className="mt-2 inline-block text-[10px] font-mono uppercase tracking-widest text-teal-600 dark:text-sky-400 group-hover:underline">
+                  View PDF
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </motion.section>
