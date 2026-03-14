@@ -61,7 +61,7 @@ const projects = [
       db: 'MongoDB',
     },
     features: ['User authentication', 'Dynamic content modules', 'Booking management'],
-    liveUrl: 'https://your-destiny-wander-live-link.com',
+    liveUrl: 'https://destinywander.onrender.com',
     githubUrl: 'https://github.com/Janu1410/DestinyWander',
   },
   {

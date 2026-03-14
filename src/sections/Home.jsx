@@ -27,73 +27,82 @@ const Home = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="flex flex-col items-center justify-center min-h-[85vh] text-center px-6 relative z-10"
+      className="min-h-[85vh] px-6 relative z-10 flex items-center"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="mb-6 px-5 py-2 rounded-full text-sm font-medium backdrop-blur-sm
-          border border-indigo-100 bg-indigo-50 text-indigo-700
-          dark:border-purple-500/30 dark:bg-purple-500/10 dark:text-purple-400"
-      >
-        Portfolio 2026
-      </motion.div>
-
-      <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
-        Hi, I&apos;m{' '}
-        <span
-          className="text-transparent bg-clip-text bg-gradient-to-r
-          from-indigo-600 to-violet-600
-          dark:from-purple-400 dark:to-blue-500"
+      <div className="mx-auto w-full max-w-6xl flex flex-col-reverse md:flex-row-reverse items-center gap-10 md:gap-16">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="w-full md:w-5/12 flex justify-center md:justify-end"
         >
-          Janu.
-        </span>
-      </h1>
+          <img
+            src="/photo.svg"
+            alt="Portrait of Janu"
+            className="w-full max-w-[360px] md:max-w-[420px] aspect-[4/5] rounded-2xl object-cover border-4 border-white/80 shadow-2xl
+              dark:border-slate-900/70"
+          />
+        </motion.div>
 
-      <div className="text-xl md:text-4xl font-light text-slate-600 dark:text-gray-400 mb-6 flex flex-col md:flex-row items-center justify-center gap-2">
-        <span>I am a</span>
-        <div className="h-[40px] flex items-center justify-center overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="font-bold text-transparent bg-clip-text bg-gradient-to-r
-                from-indigo-600 to-violet-600
-                dark:from-purple-400 dark:to-blue-500"
+        <div className="w-full md:w-7/12 text-center md:text-left">
+        
+
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
+            Hi, I&apos;m{' '}
+            <span
+              className="text-transparent bg-clip-text bg-gradient-to-r
+              from-indigo-600 to-violet-600
+              dark:from-purple-400 dark:to-blue-500"
             >
-              {roles[index]}
-            </motion.span>
-          </AnimatePresence>
+              Janu.
+            </span>
+          </h1>
+
+          <div className="text-lg md:text-3xl font-light text-slate-600 dark:text-gray-400 mb-6 flex flex-col md:flex-row items-center md:items-baseline justify-center md:justify-start gap-2">
+            <span>I am a</span>
+            <div className="h-[36px] flex items-center justify-center overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="font-bold text-transparent bg-clip-text bg-gradient-to-r
+                    from-indigo-600 to-violet-600
+                    dark:from-purple-400 dark:to-blue-500"
+                >
+                  {roles[index]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="max-w-2xl text-base md:text-lg text-slate-600 dark:text-gray-400 mb-8 leading-relaxed mx-auto md:mx-0"
+          >
+            I build modern web applications with focus on clean UI, reliable backend logic, and smooth user experience.
+            My core strengths are in
+            <span className="text-slate-900 dark:text-white font-semibold"> React, Node.js, PostgreSQL, and MongoDB</span>.
+          </motion.p>
+
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <button
+              type="button"
+              onClick={handleResumeClick}
+              disabled={!hasResume}
+              title={hasResume ? 'Open CV' : 'Add resumeUrl in src/data/siteConfig.js'}
+              className="px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
+                text-purple-700 border-2 border-purple-500/70 bg-transparent hover:bg-purple-500/10
+                dark:text-purple-300 dark:border-purple-400/60 dark:hover:bg-purple-400/10"
+            >
+              {hasResume ? 'Download CV' : 'CV Link Pending'}
+            </button>
+          </div>
         </div>
-      </div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.35 }}
-        className="max-w-3xl text-base md:text-lg text-slate-600 dark:text-gray-400 mb-8 leading-relaxed"
-      >
-        I build modern web applications with focus on clean UI, reliable backend logic, and smooth user experience.
-        My core strengths are in
-        <span className="text-slate-900 dark:text-white font-semibold"> React, Node.js, PostgreSQL, and MongoDB</span>.
-      </motion.p>
-
-      <div className="flex flex-wrap justify-center gap-4">
-        <button
-          type="button"
-          onClick={handleResumeClick}
-          disabled={!hasResume}
-          title={hasResume ? 'Open CV' : 'Add resumeUrl in src/data/siteConfig.js'}
-          className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100
-            bg-gradient-to-r from-indigo-600 to-violet-600 shadow-lg shadow-indigo-500/20
-            dark:from-purple-600 dark:to-blue-600 dark:shadow-purple-500/25"
-        >
-          {hasResume ? 'Download CV' : 'CV Link Pending'}
-        </button>
       </div>
     </motion.div>
   );
