@@ -37,7 +37,7 @@ const Home = () => {
           className="w-full lg:w-5/12 flex justify-center lg:justify-end"
         >
           <img
-            src="/photo1.svg"
+            src="/photo.svg"
             alt="Portrait of Janu"
             className="w-full max-w-[260px] sm:max-w-[300px] md:max-w-[360px] aspect-[4/5] rounded-2xl object-cover border-4 border-white/80 shadow-2xl
               dark:border-slate-900/70"
