@@ -14,9 +14,9 @@ const skillCategories = [
     skills: ["Node.js", "Express.js", "ASP.NET MVC", "FastAPI", "MongoDB", "SQL"] 
   },
   { 
-    name: "Cloud & Tools", 
+    name: "Cloud & Infrastructure", 
     icon: <Layers size={16} />, 
-    skills: ["Docker", "Git/GitHub", "Postman", "Monaco Editor", "Hugging Face API", "Groq API"] 
+    skills: ["GitHub", "Docker", "AWS", "Postman"] 
   },
   { 
     name: "Core Systems", 

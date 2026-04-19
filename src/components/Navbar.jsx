@@ -4,7 +4,14 @@ import { Sun, Moon, Menu, X, Terminal } from 'lucide-react';
 
 const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuItems = ['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'];
+  const menuItems = [
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Contact', id: 'contact' },
+  ];
 
   return (
     <>
@@ -24,14 +31,14 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
         {/* --- DESKTOP VIEW (Hidden on Mobile) --- */}
         <div className="hidden md:flex items-center gap-1">
           {menuItems.map((item) => (
-            <button
-              key={item}
-              type="button"
-              aria-current={activeSection === item.toLowerCase() ? 'page' : undefined}
-              onClick={() => setActiveSection(item.toLowerCase())}
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              aria-current={activeSection === item.id ? 'page' : undefined}
+              onClick={() => setActiveSection(item.id)}
               className="relative px-4 py-2 text-sm font-medium transition-colors duration-300"
             >
-              {activeSection === item.toLowerCase() && (
+              {activeSection === item.id && (
                 <motion.div
                   layoutId="nav-pill"
                   className="absolute inset-0 rounded-full 
@@ -41,13 +48,13 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
                 />
               )}
               <span className={`relative z-10 transition-colors duration-300 ${
-                activeSection === item.toLowerCase() 
+                activeSection === item.id 
                   ? 'text-teal-600 dark:text-sky-400 font-semibold' 
                   : 'text-slate-500 dark:text-gray-400 hover:text-black dark:hover:text-white'
               }`}>
-                {item}
+                {item.label}
               </span>
-            </button>
+            </a>
           ))}
           
           {/* Desktop Divider & Theme Toggle */}
@@ -134,26 +141,26 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, setDarkMode }) => {
             >
               <div className="p-2 space-y-1">
                 {menuItems.map((item) => (
-                  <button
-                    key={item}
-                    type="button"
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
                     role="menuitem"
-                    aria-current={activeSection === item.toLowerCase() ? 'page' : undefined}
+                    aria-current={activeSection === item.id ? 'page' : undefined}
                     onClick={() => {
-                      setActiveSection(item.toLowerCase());
+                      setActiveSection(item.id);
                       setIsMobileMenuOpen(false);
                     }}
                     className={`w-full p-4 rounded-xl text-sm font-medium transition-all duration-300 flex items-center justify-between
-                      ${activeSection === item.toLowerCase() 
+                      ${activeSection === item.id 
                         ? 'bg-teal-50 dark:bg-white/5 text-teal-600 dark:text-sky-400' 
                         : 'text-slate-500 dark:text-gray-400 hover:bg-slate-50 dark:hover:bg-white/5'
                       }`}
                   >
-                    {item}
-                    {activeSection === item.toLowerCase() && (
+                    {item.label}
+                    {activeSection === item.id && (
                       <div className="w-1.5 h-1.5 rounded-full bg-teal-500 dark:bg-sky-500 shadow-[0_0_8px_currentColor]" />
                     )}
-                  </button>
+                  </a>
                 ))}
               </div>
               

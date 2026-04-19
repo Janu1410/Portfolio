@@ -34,6 +34,10 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [darkMode, setDarkMode] = useState(getInitialDarkMode);
   const reduceMotion = useMemo(() => userPrefersReducedMotion(), []);
+  const sectionIds = useMemo(
+    () => ['home', 'about', 'skills', 'projects', 'experience', 'contact'],
+    [],
+  );
 
   // Safety fallback in case preloader animation does not complete.
   useEffect(() => {
@@ -51,10 +55,42 @@ function App() {
     document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
-  // Scroll to top when switching sections.
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-  }, [activeSection, reduceMotion]);
+    if (loading) return undefined;
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!elements.length) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        if (!visibleEntries.length) return;
+
+        visibleEntries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const nextActive = visibleEntries[0].target.id;
+        setActiveSection((prev) => (prev === nextActive ? prev : nextActive));
+      },
+      {
+        rootMargin: '-30% 0px -55% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [loading, sectionIds]);
+
+  useEffect(() => {
+    if (loading) return;
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    const target = document.getElementById(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+  }, [loading, reduceMotion]);
 
   return (
     <div className={`min-h-screen transition-colors duration-700 ${darkMode ? 'dark bg-[#0B0F14]' : 'bg-[#F6F2EC]'}`}>
@@ -88,24 +124,32 @@ function App() {
               setDarkMode={setDarkMode}
             />
 
-            <main id="main-content" tabIndex={-1} className="pt-24 pb-20 md:pt-32 min-h-screen flex flex-col justify-center">
+            <main id="main-content" tabIndex={-1} className="pt-24 pb-20 md:pt-32 min-h-screen">
               <div className="container mx-auto">
-                <AnimatePresence mode="wait">
-                  {/* We wrap components in motion.divs inside the sections themselves,
-                      but adding a key here ensures React treats them as new instances */}
-                  {activeSection === 'home' && <Home key="home" />}
-                  {activeSection === 'about' && <About key="about" />}
-                  {activeSection === 'skills' && <Skills key="skills" />}
-                  {activeSection === 'projects' && <Projects key="projects" />}
-                  {activeSection === 'experience' && <Experience key="experience" />}
-                  {activeSection === 'contact' && <Contact key="contact" />}
-                </AnimatePresence>
+                <section id="home" className="scroll-mt-28 md:scroll-mt-32">
+                  <Home />
+                </section>
+                <section id="about" className="scroll-mt-28 md:scroll-mt-32">
+                  <About />
+                </section>
+                <section id="skills" className="scroll-mt-28 md:scroll-mt-32">
+                  <Skills />
+                </section>
+                <section id="projects" className="scroll-mt-28 md:scroll-mt-32">
+                  <Projects />
+                </section>
+                <section id="experience" className="scroll-mt-28 md:scroll-mt-32">
+                  <Experience />
+                </section>
+                <section id="contact" className="scroll-mt-28 md:scroll-mt-32">
+                  <Contact />
+                </section>
               </div>
             </main>
 
             <footer className="py-8 text-center border-t border-slate-200 dark:border-white/5 mx-6 md:mx-20 transition-colors duration-500">
               <p className="text-[10px] md:text-xs font-mono text-slate-400 dark:text-gray-500 tracking-widest uppercase">
-                System.Version(2.1) | Developed by Janu | 2026
+                Developed by Janu | 2026
               </p>
             </footer>
           </motion.div>

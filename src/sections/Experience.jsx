@@ -4,13 +4,13 @@ import { Briefcase, Calendar, MapPin, Terminal, CheckCircle2 } from 'lucide-reac
 
 const experiences = [
   {
-    role: 'Software Developer Intern',
+    role: 'Software Engineer Intern',
     company: 'KCX',
     period: '2025 - Present',
     location: 'Vadodara (On-site)',
     description:
       'Contributing to FinOps-focused product modules, including dashboard implementation, API-integrated workflows, and performance-focused feature development.',
-    highlights: ['React.js', 'Node.js', 'PostgreSQL', 'GitHub'],
+    highlights: ['React.js', 'Node.js', 'PostgreSQL', 'AWS', 'GitHub'],
   },
   {
     role: 'Backend Developer Intern',
