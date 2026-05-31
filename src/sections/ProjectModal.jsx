@@ -1,10 +1,23 @@
-﻿import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Server, Layout, Database, ExternalLink, Github, Terminal } from 'lucide-react';
 
 const hasExternalLink = (url) => /^(https?:\/\/|\/)/.test(url || '');
 
 const ProjectModal = ({ project, onClose }) => {
+  useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, []);
+
   if (!project) return null;
 
   const hasLiveLink = hasExternalLink(project.liveUrl);
@@ -15,7 +28,7 @@ const ProjectModal = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4
+      className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto p-4 sm:p-6
         bg-white/60 dark:bg-[#0a0a0f]/90 backdrop-blur-md transition-colors duration-500"
       onClick={onClose}
     >
@@ -23,7 +36,7 @@ const ProjectModal = ({ project, onClose }) => {
         initial={{ scale: 0.95, y: 20, opacity: 0 }}
         animate={{ scale: 1, y: 0, opacity: 1 }}
         exit={{ scale: 0.95, y: 20, opacity: 0 }}
-        className="w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[2.5rem] relative shadow-2xl
+        className="w-full max-w-4xl max-h-[90vh] my-auto mx-auto overflow-y-auto overscroll-contain rounded-[2.5rem] relative shadow-2xl
           bg-white border border-slate-200
           dark:bg-[#0f0f15] dark:border-white/10 dark:shadow-sky-500/10"
         onClick={(e) => e.stopPropagation()}
@@ -149,7 +162,6 @@ const ProjectModal = ({ project, onClose }) => {
                   Open GitHub <Github size={18} />
                 </button>
               )}
-
             </div>
           </div>
         </div>

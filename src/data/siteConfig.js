@@ -1,6 +1,6 @@
 ﻿export const siteConfig = {
   fullName: 'Janu Gohil',
-  role: 'Software Developer',
+  role: 'Software Developer Intern',
   siteUrl: 'https://your-domain.com',
   resumeUrl: '/RESUME_K.pdf',
   socialLinks: {

@@ -23,7 +23,7 @@ const projects = [
       db: 'Session-based runtime data',
     },
     features: ['Line-by-line tracing', 'Variable visualization', 'AI explanation output'],
-    liveUrl: 'https://your-codevizai-live-link.com',
+    liveUrl: 'https://code-viz-ai2026.vercel.app',
     githubUrl: 'https://github.com/dhruvi1552/CodeVizAi2026',
   },
   {
@@ -98,6 +98,13 @@ const Projects = () => {
       viewport={{ once: true }}
       className="max-w-6xl mx-auto py-20 px-6 relative z-10"
     >
+      <div className="flex items-center gap-4 mb-12">
+        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+          Projects<span className="text-teal-600 dark:text-sky-500">_</span>
+        </h3>
+        <div className="h-[1px] flex-grow bg-gradient-to-r from-teal-500/50 to-transparent dark:from-sky-500/50" />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, i) => (
           <motion.button

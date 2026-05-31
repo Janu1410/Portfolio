@@ -104,8 +104,8 @@ const About = () => {
 
               <div className="space-y-4 font-sans leading-relaxed text-slate-600 dark:text-gray-400">
                 <p>
-                  I am a <span className="text-slate-900 dark:text-white font-semibold">final-year Computer Science student</span> focused on
-                  practical full-stack development and backend automation.
+                  I am a <span className="text-slate-900 dark:text-white font-semibold">Computer Science graduate</span> focused on practical
+                  full-stack development and backend automation.
                 </p>
                 <p>
                   My work includes building <span className="text-slate-900 dark:text-white font-medium">RESTful APIs</span>, managing database

@@ -6,7 +6,7 @@ const experiences = [
   {
     role: 'Software Engineer Intern',
     company: 'KCX',
-    period: '2025 - Present',
+    period: 'Dec 2025 - May 2026',
     location: 'Vadodara (On-site)',
     description:
       'Contributing to FinOps-focused product modules, including dashboard implementation, API-integrated workflows, and performance-focused feature development.',
